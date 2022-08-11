@@ -18,7 +18,7 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("com.influxdb:influxdb-client-java:6.4.0")
+    implementation("com.influxdb:influxdb-spring:6.4.0")
     implementation("com.influxdb:flux-dsl:6.4.0")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
