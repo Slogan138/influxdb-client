@@ -17,9 +17,7 @@ import java.time.Instant
 @Service
 @EnableConfigurationProperties(InfluxProperties::class)
 class InfluxService(
-    val influxDBClient: InfluxDBClient,
-    val writeApi: WriteApi,
-    val influxProperties: InfluxProperties
+    val influxDBClient: InfluxDBClient, val writeApi: WriteApi, val influxProperties: InfluxProperties
 ) {
     val log: Logger = LoggerFactory.getLogger(javaClass)
 
@@ -37,8 +35,8 @@ class InfluxService(
         return influxDBClient.queryApi.query(flux.toString())
     }
 
-    fun write(id: String, value: Int) {
-        val metric = Metric(id, value)
+    fun write(metric: Metric): Boolean {
         writeApi.writeMeasurement(WritePrecision.MS, metric)
+        return true
     }
 }
